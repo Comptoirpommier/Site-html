@@ -4,13 +4,11 @@ body {
     padding: 0;
     text-align: center;
     background-color: #f9f9f9;
+    flex-direction:column; 
+    align-items:center;
 }
 
 .logo {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 10%; /* Taille du logo en pourcentage de la largeur de l'écran */
     max-width: 100px; /* Limite la largeur du logo à 150 pixels */
     opacity: 0.5; /* Opacité du logo */
@@ -19,7 +17,10 @@ body {
 header {
     background-color: #ffffff;
     padding: 20px;
-    position: relative;
+    width : 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -40,13 +41,13 @@ h1 {
 nav ul {
    list-style: none;
     padding: 0;
-}
+    display: flex;
+    flex-direction: column; /* Change l'orientation des items à verticale */
+    align-items: center;
 }
 
 nav ul li {
-    display: inline-block;
-    margin: 0 15px;
-    padding: 10px 0;
+    margin: 10px 0;
 }
 
 nav ul li a {
@@ -58,18 +59,22 @@ nav ul li a {
 footer {
     background-color: #ffffff;
     padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    width : 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px%;
 }
 
 .social-links {
     margin-top: 30px;
+    display: flex;
+    justify-content:center;
 }
 
 .social-links img {
     width:10px; /* Ajustez la taille selon vos besoins */
-    margin-right: 60px; /* Ajoutez une marge entre les icônes */
+    height: auto;
+    margin-right: 0 60px; /* Ajoutez une marge entre les icônes */
 }
 
 /* Réglages pour les appareils mobiles */
@@ -85,7 +90,6 @@ footer {
     nav ul li {
         display: block;
         margin: 10px 0;
-        padding: 15px 0;
     }
 
     nav ul li a {
