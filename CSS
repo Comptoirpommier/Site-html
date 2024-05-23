@@ -11,7 +11,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 10cm; /* Taille du logo */
+    width: 5cm; /* Taille du logo */
     opacity: 0.5; /* Opacité du logo */
 }
 
