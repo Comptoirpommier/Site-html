@@ -4,20 +4,18 @@ body {
     padding: 0;
     text-align: center;
     background-color: #f9f9f9;
-    flex-direction:column; 
-    align-items:center;
 }
 
 .logo {
     width: 10%; /* Taille du logo en pourcentage de la largeur de l'écran */
-    max-width: 100px; /* Limite la largeur du logo à 150 pixels */
+    max-width: 100px; /* Limite la largeur du logo à 100 pixels */
     opacity: 0.5; /* Opacité du logo */
 }
 
 header {
     background-color: #b76e79;
     padding: 20px;
-    width : 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,7 +26,8 @@ h1 {
     font-size: 2em;
 }
 
-.contact-info p, .contact-info a {
+.contact-info p,
+.contact-info a {
     color: #007bff;
     font-size: 1.2em;
     margin: 5px 0;
@@ -39,7 +38,7 @@ h1 {
 }
 
 nav ul {
-   list-style: none;
+    list-style: none;
     padding: 0;
     display: flex;
     flex-direction: column; /* Change l'orientation des items à verticale */
@@ -55,26 +54,27 @@ nav ul li a {
     color: #007bff;
     font-size: 1.5em;
 }
-/* Styles pour le pied de page et les icônes sociales */
+
+/* Styles pour le pied de page */
 footer {
     background-color: #ffffff;
     padding: 10px;
-    width : 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 20px%;
+    margin-top: 20px;
 }
 
 .social-links {
     margin-top: 30px;
     display: flex;
-    justify-content:center;
+    justify-content: center;
 }
 
 .social-links img {
-    width:10px; /* Ajustez la taille selon vos besoins */
+    width: 20px; /* Ajustez la taille des icônes selon vos besoins */
     height: auto;
-    margin-right: 400px; /* Ajoutez une marge entre les icônes */
+    margin-right: 10px; /* Ajoutez une marge entre les icônes */
 }
 
 /* Réglages pour les appareils mobiles */
@@ -95,6 +95,7 @@ footer {
     nav ul li a {
         font-size: 1.2em; /* Réduire la taille des liens de navigation pour les petits écrans */
     }
+}
  .social-links img {
         width: 10px; /* Réduire la taille des icônes pour les petits écrans */
     }
