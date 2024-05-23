@@ -4,12 +4,15 @@ body {
     padding: 0;
     text-align: center;
     background-color: #f9f9f9;
-    background-image: url('logo.png');
-    background-size: 150px; /* Taille du logo */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    opacity: 1;
+}
+
+.logo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10cm; /* Taille du logo */
+    opacity: 0.5; /* Opacité du logo */
 }
 
 header {
