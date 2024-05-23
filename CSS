@@ -11,7 +11,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 5cm; /* Taille du logo */
+    width: 20%; /* Taille du logo en pourcentage de la largeur de l'écran */
+    max-width: 150px; /* Limite la largeur du logo à 150 pixels */
     opacity: 0.5; /* Opacité du logo */
 }
 
@@ -51,4 +52,22 @@ nav ul li a {
     color: #007bff;
     font-size: 1.5em;
 }
+/* Réglages pour les appareils mobiles */
+@media screen and (max-width: 600px) {
+    .logo {
+        width: 50%; /* Réduire la taille du logo pour les petits écrans */
+    }
 
+    h1 {
+        font-size: 1.5em; /* Réduire la taille du titre pour les petits écrans */
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 1.2em; /* Réduire la taille des liens de navigation pour les petits écrans */
+    }
+}
