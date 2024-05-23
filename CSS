@@ -74,7 +74,7 @@ footer {
 .social-links img {
     width:10px; /* Ajustez la taille selon vos besoins */
     height: auto;
-    margin-right: 0 100px; /* Ajoutez une marge entre les icônes */
+    margin-right: 0 300px; /* Ajoutez une marge entre les icônes */
 }
 
 /* Réglages pour les appareils mobiles */
