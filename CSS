@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Verdana, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -52,6 +52,24 @@ nav ul li a {
     color: #007bff;
     font-size: 1.5em;
 }
+/* Styles pour le pied de page et les icônes sociales */
+footer {
+    background-color: #ffffff;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links img {
+    width: 30px; /* Ajustez la taille selon vos besoins */
+    margin-right: 10px; /* Ajoutez une marge entre les icônes */
+}
+
 /* Réglages pour les appareils mobiles */
 @media screen and (max-width: 600px) {
     .logo {
@@ -69,5 +87,8 @@ nav ul li a {
 
     nav ul li a {
         font-size: 1.2em; /* Réduire la taille des liens de navigation pour les petits écrans */
+    }
+ .social-links img {
+        width: 20px; /* Réduire la taille des icônes pour les petits écrans */
     }
 }
