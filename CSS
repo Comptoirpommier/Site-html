@@ -10,7 +10,8 @@ body, html {
 .logo-wrapper {
     margin-bottom: 20px;
 }
-.logo{
+
+.logo {
     width: 10%; /* Taille du logo en pourcentage de la largeur de l'écran */
     max-width: 20px; /* Limite la largeur du logo à 100 pixels */
     opacity: 0.5; /* Opacité du logo */
@@ -101,8 +102,8 @@ footer {
     nav ul li a {
         font-size: 1.2em; /* Réduire la taille des liens de navigation pour les petits écrans */
     }
-}
- .social-links img {
+
+    .social-links img {
         width: 10px; /* Réduire la taille des icônes pour les petits écrans */
     }
 }
