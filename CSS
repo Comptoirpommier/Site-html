@@ -62,12 +62,12 @@ footer {
 }
 
 .social-links {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .social-links img {
     width:10px; /* Ajustez la taille selon vos besoins */
-    margin-right: 30px; /* Ajoutez une marge entre les icônes */
+    margin-right: 60px; /* Ajoutez une marge entre les icônes */
 }
 
 /* Réglages pour les appareils mobiles */
