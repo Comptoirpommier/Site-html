@@ -86,6 +86,7 @@ footer {
 @media screen and (max-width: 600px) {
     .logo {
         width: 50%; /* Réduire la taille du logo pour les petits écrans */
+        max-width: 200px; /* Limite la largeur du logo */
     }
 
     h1 {
@@ -98,10 +99,12 @@ footer {
     }
 
     nav ul li a {
-        font-size: 1.2em; /* Réduire la taille des liens de navigation pour les petits écrans */
+        font-size: 1em; /* Réduire la taille des liens de navigation pour les petits écrans */
     }
 
     .social-links img {
-        width: 10px; /* Réduire la taille des icônes pour les petits écrans */
+        width: 20px; /* Réduire la taille des icônes pour les petits écrans */
+        height: auto;
+        margin-right: 5px; /* Ajouter une marge entre les icônes */
     }
 }
