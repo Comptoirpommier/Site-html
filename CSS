@@ -8,7 +8,7 @@ body {
 
 .logo {
     width: 10%; /* Taille du logo en pourcentage de la largeur de l'écran */
-    max-width: 100px; /* Limite la largeur du logo à 100 pixels */
+    max-width: 20px; /* Limite la largeur du logo à 100 pixels */
     opacity: 0.5; /* Opacité du logo */
 }
 
