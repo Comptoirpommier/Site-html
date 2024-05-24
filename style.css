@@ -9,7 +9,7 @@ body, html {
     background-color: #f9f9f9;
 }
 .container {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -19,7 +19,7 @@ body, html {
 }
 
 .logo {
-   max-width: 120%;
+   max-width: 150%;
     height: auto;
     opacity: 1; /* Opacité complète */
 }
@@ -62,9 +62,9 @@ footer {
 }
 
 .social-links img {
-    width: 30px; /* Ajustez la taille des icônes selon vos besoins */
+    width: 50px; /* Ajustez la taille des icônes selon vos besoins */
     height: auto;
-    margin-right: 10px; /* Ajoutez une marge entre les icônes */
+    margin-right:30px; /* Ajoutez une marge entre les icônes */
 }
 
 @media screen and (max-width: 600px) {
