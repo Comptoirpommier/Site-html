@@ -19,7 +19,7 @@ body, html {
 }
 
 .logo {
-   ,max-width: 100%;
+   ,max-width: 90%;
     max-height: 300px; /* Adjust this value to your desired maximum height */
     width: auto;
     opacity: 1; /* Opacité complète */
