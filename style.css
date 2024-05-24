@@ -14,9 +14,10 @@ body, html {
 }
 
 .logo {
-    width: 600px; /* Ajustez cette valeur selon vos besoins */
+    max-width: 500px; /* Ajustez cette valeur selon vos besoins */
+    width: 100%; /* Utilisez la largeur complète jusqu'à max-width */
     height: auto; /* Maintient le ratio d'aspect */
-    opacity: 1; /* Opacité du logo */
+    opacity: 1; /* Opacité complète */
 }
 
 header {
