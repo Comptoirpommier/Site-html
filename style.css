@@ -7,7 +7,12 @@ body, html {
     padding: 0;
     text-align: center;
     background-color: #f9f9f9;
+    box-sizing: border-box; /* Ajouté pour un modèle de boîte plus intuitif */
 }
+*, *::before, *::after {
+    box-sizing: inherit; /* Assure que tous les éléments utilisent le même modèle de boîte */
+}
+
 .container {
     max-width: 1500px;
     margin: 0 auto;
@@ -38,7 +43,11 @@ h1 {
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0; /* Assure qu'il n'y a pas de marge */
     text-align: center;
+    display: flex;
+    justify-content: center; /* Centrer horizontalement les éléments */
+    flex-wrap: wrap; /* Permet aux éléments de se renvoyer à la ligne si nécessaire */
 }
 
 nav ul li {
@@ -72,7 +81,10 @@ footer {
     .logo {
         width: 80%; /* Réduire la taille du logo pour les petits écrans */
     }
-
+    
+     nav ul {
+        flex-direction: column; /* Affiche les éléments de navigation en colonne */
+}
     nav ul li {
         display: block;
         margin: 10px 0;
@@ -84,5 +96,6 @@ footer {
 
     .social-links img {
         width: 20px; /* Réduire la taille des icônes pour les petits écrans */
+        margin-right: 10px; /* Réduire la marge pour les petits écrans */
     }
 }
