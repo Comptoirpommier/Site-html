@@ -8,7 +8,7 @@ body, html {
     background-color: #f9f9f9;
 }
 .logo-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 100px;
 }
 .logo {
     width: 100%; /* Taille du logo en pourcentage de la largeur de l'écran */
