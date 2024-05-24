@@ -9,12 +9,7 @@ body, html {
     background-color: #f9f9f9;
     box-sizing: border-box; /* Ajouté pour un modèle de boîte plus intuitif */
 }
-body {
-    transform: scale(3);
-    transform-origin: top left;
-    width: 33.33%; /* Adjust width to account for the scale */
-    overflow: hidden; /* Prevent scrolling */
-}
+
 *, *::before, *::after {
     box-sizing: inherit; /* Assure que tous les éléments utilisent le même modèle de boîte */
 }
