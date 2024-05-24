@@ -11,8 +11,8 @@ body, html {
     margin-bottom: 20px;
 }
 .logo {
-    width: 10%; /* Taille du logo en pourcentage de la largeur de l'écran */
-    max-width: 20px; /* Limite la largeur du logo à 100 pixels */
+    width: 100%; /* Taille du logo en pourcentage de la largeur de l'écran */
+    max-width: 100px; /* Limite la largeur du logo à 100 pixels */
     opacity: 0.5; /* Opacité du logo */
 }
 header {
