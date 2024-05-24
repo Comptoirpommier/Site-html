@@ -14,7 +14,7 @@ body, html {
 }
 
 .logo {
-    width: 200px; /* Ajustez cette valeur selon vos besoins */
+    width: 600px; /* Ajustez cette valeur selon vos besoins */
     height: auto; /* Maintient le ratio d'aspect */
     opacity: 1; /* Opacité du logo */
 }
