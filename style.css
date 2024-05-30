@@ -99,3 +99,33 @@ footer {
         margin-right: 10px; /* Réduire la marge pour les petits écrans */
     }
 }
+/* Nouveaux styles pour les boutons */
+.button-container {
+    list-style-type: none; /* Enlever les puces des listes */
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-container li {
+    margin: 0; /* Supprimer les marges des éléments de liste */
+}
+
+.button {
+    background-color: #4CAF50; /* Couleur de fond verte */
+    color: white; /* Couleur du texte blanc */
+    padding: 15px 20px; /* Espacement interne */
+    text-align: center; /* Centrer le texte */
+    text-decoration: none; /* Supprimer la décoration du texte */
+    display: inline-block; /* Affichage en bloc en ligne */
+    font-size: 16px; /* Taille du texte */
+    border-radius: 8px; /* Coins arrondis */
+    transition: background-color 0.3s; /* Transition pour le survol */
+}
+
+.button:hover {
+    background-color: #45a049; /* Couleur de fond au survol */
+}
