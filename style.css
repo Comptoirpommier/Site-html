@@ -32,13 +32,13 @@ body, html {
 }
 
 header {
-    background-color: #b76e79;
+    background-color: #8B4513; /* Couleur de fond vieux bois */
     padding: 20px;
     text-align: center;
 }
 
 h1 {
-    color: #000;
+    color: #FFFFFF; /* Couleur du texte blanc */
     font-size: 2em;
 }
 
@@ -59,7 +59,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #007bff;
+    color: #007bff; /* Couleur de lien */
     font-size: 1.5em;
 }
 
@@ -76,7 +76,7 @@ footer {
 .social-links img {
     width: 70px; /* Ajustez la taille des icônes selon vos besoins */
     height: auto;
-    margin-right:70px; /* Ajoutez une marge entre les icônes */
+    margin-right: 70px; /* Ajoutez une marge entre les icônes */
 }
 
 @media screen and (max-width: 600px) {
@@ -119,7 +119,7 @@ footer {
 }
 
 .button {
-    background-color: #8B4513; /* Couleur de fond vieux bois */
+    background-color: #A93226; /* Couleur de fond rouge profond */
     color: white; /* Couleur du texte blanc */
     padding: 15px 20px; /* Espacement interne */
     text-align: center; /* Centrer le texte */
@@ -131,7 +131,7 @@ footer {
 }
 
 .button:hover {
-    background-color: #A93226; /* Couleur de fond au survol */
+    background-color: #45a049; /* Couleur de fond au survol */
 }
 
 /* PDF2HTML Styles */
