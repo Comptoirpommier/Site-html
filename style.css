@@ -18,13 +18,14 @@ body, html {
     margin: 0 auto;
     padding: 20px;
 }
+
 .logo-wrapper {
     margin-bottom: 50px;
     text-align: center;
 }
 
 .logo {
-   ,max-width: 100%;
+    max-width: 100%;
     max-height: 300px; /* Adjust this value to your desired maximum height */
     width: auto;
     opacity: 1; /* Opacité complète */
@@ -40,6 +41,7 @@ h1 {
     color: #000;
     font-size: 2em;
 }
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -81,10 +83,11 @@ footer {
     .logo {
         width: 80%; /* Réduire la taille du logo pour les petits écrans */
     }
-    
-     nav ul {
+
+    nav ul {
         flex-direction: column; /* Affiche les éléments de navigation en colonne */
-}
+    }
+
     nav ul li {
         display: block;
         margin: 10px 0;
@@ -99,6 +102,7 @@ footer {
         margin-right: 10px; /* Réduire la marge pour les petits écrans */
     }
 }
+
 /* Nouveaux styles pour les boutons */
 .button-container {
     list-style-type: none; /* Enlever les puces des listes */
@@ -125,6 +129,11 @@ footer {
     border-radius: 8px; /* Coins arrondis */
     transition: background-color 0.3s; /* Transition pour le survol */
 }
+
+.button:hover {
+    background-color: #A93226; /* Couleur de fond au survol */
+}
+
 /* PDF2HTML Styles */
 #sidebar {
     position: absolute;
@@ -290,9 +299,4 @@ footer {
 
 .ir:hover {
     cursor: pointer;
-}
-
-
-.button:hover {
-    background-color: #45a049; /* Couleur de fond au survol */
 }
