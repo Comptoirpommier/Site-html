@@ -125,13 +125,16 @@ footer {
 }
 
 .social-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     margin-top: 20px;
 }
 
 .social-links img {
     width: 70px; /* Ajustez la taille des icônes selon vos besoins */
     height: auto;
-    margin-right: 70px; /* Ajoutez une marge entre les icônes */
+    margin: 0 10px; /* Ajoutez une marge entre les icônes */
 }
 
 /* PDF2HTML Styles */
@@ -334,8 +337,16 @@ footer {
         font-size: 1.2em; /* Réduire la taille des liens de navigation pour les petits écrans */
     }
 
+    .social-links {
+        margin-top: 0;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
     .social-links img {
-        width: 20px; /* Réduire la taille des icônes pour les petits écrans */
-        margin-right: 10px; /* Réduire la marge pour les petits écrans */
+        width: 30px; /* Ajustez la taille des icônes selon vos besoins */
+        height: auto;
+        margin: 0;
     }
 }
