@@ -347,6 +347,6 @@ footer {
     .social-links img {
         width: 30px; /* Ajustez la taille des icônes selon vos besoins */
         height: auto;
-        margin: 0;
+        margin: 30;
     }
 }
