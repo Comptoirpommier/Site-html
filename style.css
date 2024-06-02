@@ -119,15 +119,16 @@ footer {
 }
 
 .button {
-    background-color: #A93226; /* Couleur de fond rouge profond */
-    color: white; /* Couleur du texte blanc */
+    background-color:white; /* Couleur de fond rouge profond */
+    color: black; /* Couleur du texte noir */
     padding: 15px 20px; /* Espacement interne */
     text-align: center; /* Centrer le texte */
     text-decoration: none; /* Supprimer la décoration du texte */
     display: inline-block; /* Affichage en bloc en ligne */
     font-size: 16px; /* Taille du texte */
+    border: 2px solid black;
     border-radius: 8px; /* Coins arrondis */
-    transition: background-color 0.3s; /* Transition pour le survol */
+    transition: background-color 0.3s, color 0.3s; /* Transition pour le survol */
 }
 
 .button:hover {
