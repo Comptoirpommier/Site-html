@@ -132,9 +132,9 @@ footer {
 }
 
 .social-links img {
-    width: 70px; /* Ajustez la taille des icônes selon vos besoins */
+    width: 50px; /* Ajustez la taille des icônes selon vos besoins */
     height: auto;
-    margin: 0 70px; /* Ajoutez une marge entre les icônes */
+    margin: 0 150px; /* Ajoutez une marge entre les icônes */
 }
 
 /* PDF2HTML Styles */
