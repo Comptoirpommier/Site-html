@@ -1,3 +1,4 @@
+/* Global Styles */
 body, html {
     font-family: Cambria, sans-serif;
     font-size: 16px;
@@ -13,12 +14,34 @@ body, html {
     box-sizing: inherit; /* Assure que tous les éléments utilisent le même modèle de boîte */
 }
 
-.container {
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 20px;
+h1 {
+    color: #FFFFFF; /* Couleur du texte blanc */
+    font-size: 2em;
 }
 
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header {
+    background-color: #D3D3D3; /* Couleur de fond gris clair */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Logo */
 .logo-wrapper {
     margin-bottom: 50px;
     text-align: center;
@@ -31,17 +54,7 @@ body, html {
     opacity: 1; /* Opacité complète */
 }
 
-header {
-    background-color: #D3D3D3; /* Couleur de fond gris clair */
-    padding: 20px;
-    text-align: center;
-}
-
-h1 {
-    color: #FFFFFF; /* Couleur du texte blanc */
-    font-size: 2em;
-}
-
+/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
@@ -63,47 +76,7 @@ nav ul li a {
     font-size: 1.5em;
 }
 
-footer {
-    background-color: #ffffff;
-    padding: 10px;
-    text-align: center;
-}
-
-.social-links {
-    margin-top: 20px;
-}
-
-.social-links img {
-    width: 70px; /* Ajustez la taille des icônes selon vos besoins */
-    height: auto;
-    margin-right: 70px; /* Ajoutez une marge entre les icônes */
-}
-
-@media screen and (max-width: 600px) {
-    .logo {
-        width: 80%; /* Réduire la taille du logo pour les petits écrans */
-    }
-
-    nav ul {
-        flex-direction: column; /* Affiche les éléments de navigation en colonne */
-    }
-
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    nav ul li a {
-        font-size: 1.2em; /* Réduire la taille des liens de navigation pour les petits écrans */
-    }
-
-    .social-links img {
-        width: 20px; /* Réduire la taille des icônes pour les petits écrans */
-        margin-right: 10px; /* Réduire la marge pour les petits écrans */
-    }
-}
-
-/* Nouveaux styles pour les boutons */
+/* Buttons */
 .button-container {
     list-style-type: none; /* Enlever les puces des listes */
     padding: 0;
@@ -119,20 +92,46 @@ footer {
 }
 
 .button {
-    background-color:white; /* Couleur de fond rouge profond */
-    color: black; /* Couleur du texte noir */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 180px;
     padding: 15px 20px; /* Espacement interne */
-    text-align: center; /* Centrer le texte */
-    text-decoration: none; /* Supprimer la décoration du texte */
-    display: inline-block; /* Affichage en bloc en ligne */
-    font-size: 16px; /* Taille du texte */
     border: 2px solid black;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px; /* Taille du texte */
     border-radius: 8px; /* Coins arrondis */
     transition: background-color 0.3s, color 0.3s; /* Transition pour le survol */
 }
 
 .button:hover {
     background-color: #45a049; /* Couleur de fond au survol */
+    color: white;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 10px;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links img {
+    width: 70px; /* Ajustez la taille des icônes selon vos besoins */
+    height: auto;
+    margin-right: 70px; /* Ajoutez une marge entre les icônes */
 }
 
 /* PDF2HTML Styles */
@@ -300,4 +299,43 @@ footer {
 
 .ir:hover {
     cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column {
+        width: 100%;
+        align-items: center;
+    }
+
+    .button {
+        max-width: 100%;
+    }
+
+    .logo {
+        width: 80%; /* Réduire la taille du logo pour les petits écrans */
+    }
+
+    nav ul {
+        flex-direction: column; /* Affiche les éléments de navigation en colonne */
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 1.2em; /* Réduire la taille des liens de navigation pour les petits écrans */
+    }
+
+    .social-links img {
+        width: 20px; /* Réduire la taille des icônes pour les petits écrans */
+        margin-right: 10px; /* Réduire la marge pour les petits écrans */
+    }
 }
