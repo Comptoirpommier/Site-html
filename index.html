@@ -37,5 +37,23 @@
         </div>
     </footer>
     </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Vérifier si l'URL contient une page spécifique
+            let currentURL = window.location.href;
+            if (!currentURL.endsWith("index.html") && !currentURL.endsWith("/")) {
+                // Créer et ajouter les balises meta
+                let metaViewport = document.createElement('meta');
+                metaViewport.name = "viewport";
+                metaViewport.content = "width=device-width, initial-scale=1.0, user-scalable=yes";
+                document.head.appendChild(metaViewport);
+
+                let metaXUA = document.createElement('meta');
+                metaXUA.httpEquiv = "X-UA-Compatible";
+                metaXUA.content = "IE=edge,chrome=1";
+                document.head.appendChild(metaXUA);
+            }
+        });
+    </script>
 </body>
 </html>
