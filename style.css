@@ -134,7 +134,7 @@ footer {
 .social-links img {
     width: 50px; /* Ajustez la taille des icônes selon vos besoins */
     height: auto;
-    margin: 0 50px; /* Ajoutez une marge entre les icônes */
+    margin: 0 40px; /* Ajoutez une marge entre les icônes */
 }
 
 /* PDF2HTML Styles */
