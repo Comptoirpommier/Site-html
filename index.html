@@ -30,79 +30,44 @@
                     <a href="Destilados.html" target="_blank" class="button">Destilados</a>
                 </li>
                 <li class="column">
-                    <div class="dropdown">
-                        <a href="Vinhos-Tintos-Cumul.html" target="_blank" class="button">Vinhos Tintos</a>
-                        <div class="dropdown-content">
-                            <a href="Tinto Seco.html">Seco</a>
-                            <a href="Tinto Meio Seco.html">Meio Seco</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="Vinhos-Rosés.html" target="_blank" class="button">Vinhos Rosés</a>
-                        <div class="dropdown-content">
-                            <a href="Rosé Seco.html">Seco</a>
-                            <a href="Rosé Meio Seco.html">Meio Seco</a>
-                            <a href="Rosé Suave.html">Suave</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="Vinhos-Brancos.html" target="_blank" class="button">Vinhos Brancos</a>
-                        <div class="dropdown-content">
-                            <a href="Branco Seco.html">Seco</a>
-                            <a href="Branco Meio Seco.html">Meio Seco</a>
-                            <a href="Branco Suave.html">Suave</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="Espumantes.html" target="_blank" class="button">Espumantes</a>
-                        <div class="dropdown-content">
-                            <a href="Espumantes Brut.html">Brut</a>
-                            <a href="Espumantes Meio Seco.html">Meio Seco</a>
-                            <a href="Espumantes Suave.html">Suave</a>
-                            <a href="Espumantes Zero.html">Zero Álcool</a>
-                        </div>
-                    </div>
+                    <a href="Tinto Seco.html" target="_blank" class="button">Vinhos Tintos Secos</a>
+                    <a href="Tinto Meio Seco.html" target="_blank" class="button">Vinhos Tintos Meio Secos</a>
+                    <a href="Rosé Seco.html" target="_blank" class="button">Vinhos Rosés Secos</a>
+                    <a href="Rosé Meio Seco.html" target="_blank" class="button">Vinhos Rosés Meio Secos</a>
+                    <a href="Rosé Suave.html" target="_blank" class="button">Vinhos Rosés Suaves</a>
+                    <a href="Branco Seco.html" target="_blank" class="button">Vinhos Brancos Secos</a>
+                    <a href="Branco Meio Seco.html" target="_blank" class="button">Vinhos Brancos Meio Secos</a>
+                    <a href="Branco Suave.html" target="_blank" class="button">Vinhos Brancos Suaves</a>
+                    </li>
+                <li class="column">
                     <a href="Frisantes.html" target="_blank" class="button">Frisantes</a>
+                    <a href="Espumantes Brut.html" target="_blank" class="button">Espumantes Brut</a>
+                    <a href="Espumantes Meio Seco.html" target="_blank" class="button">Espumantes Meio Seco</a>
+                    <a href="Espumantes Suave.html" target="_blank" class="button">Espumantes Suaves</a>
+                    <a href="Espumantes Zero.html" target="_blank" class="button">Espumantes Zero Alcool</a>
                     <a href="Champanhes.html" target="_blank" class="button">Champanhes</a>
                 </li>
             </ul>
         </nav>
-        <div class="search-button-wrapper">
-            <button class="search-button" id="searchButton">
-                <img src="search-icon.png" alt="Search" class="search-icon">Recherche
-            </button>
-            <div class="search-dropdown" id="searchDropdown">
-                <a href="#" data-files="Tinto Seco.html,Branco Seco.html,Rosé Seco.html,Espumantes Brut.html">Seco</a>
-                <a href="#" data-files="Tinto Meio Seco.html,Branco Meio Seco.html,Rosé Meio Seco.html,Espumantes Meio Seco.html">Meio Seco</a>
-                <a href="#" data-files="Tinto Suave.html,Branco Suave.html,Rosé Suave.html,Espumantes Suave.html">Suave</a>
-            </div>
-        </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                const searchButton = document.getElementById('searchButton');
-                const searchDropdown = document.getElementById('searchDropdown');
-
-                searchButton.addEventListener('click', function() {
-                    searchDropdown.classList.toggle('show');
-                });
-
-                window.addEventListener('click', function(e) {
-                    if (!searchButton.contains(e.target)) {
-                        searchDropdown.classList.remove('show');
-                    }
-                });
-
-                document.querySelectorAll('#searchDropdown a').forEach(function(link) {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        let files = this.getAttribute('data-files').split(',');
-                        files.forEach(function(file) {
-                            window.open(file.trim(), '_blank');
-                        });
-                    });
-                });
-            });
-        </script>
+        <footer>
+            
+        </footer>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let currentURL = window.location.href;
+            if (!currentURL.endsWith("index.html") && !currentURL.endsWith("/")) {
+                let metaViewport = document.createElement('meta');
+                metaViewport.name = "viewport";
+                metaViewport.content = "width=device-width, initial-scale=1.0, user-scalable=yes";
+                document.head.appendChild(metaViewport);
+
+                let metaXUA = document.createElement('meta');
+                metaXUA.httpEquiv = "X-UA-Compatible";
+                metaXUA.content = "IE=edge,chrome=1";
+                document.head.appendChild(metaXUA);
+            }
+        });
+    </script>
 </body>
 </html>
