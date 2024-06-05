@@ -71,14 +71,20 @@
                 <img src="search-icon.png" alt="Search" class="search-icon">Recherche
             </button>
             <div class="search-dropdown" id="searchDropdown">
-                <a href="Seco.html">Seco</a>
-                <a href="Meio Seco.html">Meio Seco</a>
-                <a href="Suave.html">Suave</a>
-            </div>
-        </div>
-        <footer></footer>
-    </div>
+    <a href="#" data-files="Tinto Seco.html,Branco Seco.html, Rosé Seco.html,Espumantes Brut.html">Seco</a>
+    <a href="#" data-files="Tinto Meio Seco.html,Branco Meio Seco.html,Rosé Meio Seco.html,Espumantes Meio Seco.html">Meio Seco</a>
+    <a href="#" data-files="Tinto Suave.html,Branco Suave.html,Rosé Suave.html,Espumantes Suave.html">Suave</a>
+</div>
+            <script>
+document.querySelectorAll('#searchDropdown a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        let files = this.getAttribute('data-files').split(',');
+        files.forEach(function(file) {
+            window.open(file.trim(), '_blank');
+        });
     <script>
+        
         document.addEventListener("DOMContentLoaded", function() {
             // Script pour le bouton de recherche
             const searchButton = document.getElementById('searchButton');
