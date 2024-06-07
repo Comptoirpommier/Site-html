@@ -49,7 +49,17 @@ h1 {
     width: auto;
     opacity: 1;
 }
-
+.banner {
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+.banner span {
+    font-size: 18px;
+    color: #000000;
+    margin-left: 10px;
+}
 /* Navigation */
 nav ul {
     list-style: none;
