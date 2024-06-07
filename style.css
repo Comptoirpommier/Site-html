@@ -422,7 +422,7 @@ footer {
     }
 
     .button {
-        max-width: 100%;
+        max-width: 50%;
         display: block;
         padding: 10px 0;
         font-size: 14px
