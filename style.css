@@ -64,21 +64,7 @@ h1 {
 .blink {
     animation: blink-animation 1s infinite; /* Ajouter une animation de clignotement */
 }
-.promo-buttons {
-    margin-top: 20px;
-    text-align: center;
-}
 
-.promo-buttons .button {
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #d4af37;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
 /* Navigation */
 nav ul {
     list-style: none;
