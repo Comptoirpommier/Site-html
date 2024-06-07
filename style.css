@@ -147,8 +147,8 @@ nav ul li a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
-    max-width: 180px;
+    width: 100%;
+    max-width: 160px;
     padding: 15px 20px;
     border: 2px solid black;
     background-color: white;
