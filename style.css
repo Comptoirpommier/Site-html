@@ -60,7 +60,7 @@ h1 {
     font-size: 16px;
     font-style: italic;
     color: #AA0078;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     margin-left: 10px;
 }
 .blink {
