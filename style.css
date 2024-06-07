@@ -408,24 +408,19 @@ footer {
     cursor: pointer;
 }
 
-/* Responsive Design */
 @media (max-width: 600px) {
     .button-container {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row; /* Modifier la direction du flexbox pour afficher les boutons en ligne */
+        flex-wrap: wrap; /* Permettre le retour à la ligne des boutons si nécessaire */
+        justify-content: center; /* Centrer les boutons horizontalement */
     }
-
-    .column {
-        width: 100%;
-        align-items: center;
-}
 
     .button {
-        max-width: 90%; /* Ajuster la largeur maximale des boutons */
-        width: auto; /* Permettre aux boutons de s'adapter à la taille de leur contenu */
-        text-align: center; /* Centrer le texte à l'intérieur des boutons */
-        margin: 10px auto; /* Centrer les boutons horizontalement avec un espacement entre eux */
+        width: calc(33.33% - 20px); /* Définir la largeur des boutons pour qu'ils occupent environ un tiers de l'écran avec un espacement */
+        max-width: 180px; /* Limiter la largeur maximale des boutons */
+        margin: 10px; /* Espacement entre les boutons */
     }
+
     nav ul li {
         margin: 5px 0; /* Espacement entre les éléments de la liste de navigation */
     }
