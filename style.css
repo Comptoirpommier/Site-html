@@ -49,6 +49,8 @@ h1 {
     width: auto;
     opacity: 1;
 }
+
+/* Banner */
 .banner {
     text-align: center;
     background-color: #D3D3D3;
@@ -467,4 +469,28 @@ footer {
     height: auto;
     margin: 30;
 }
+}
+
+/* Landscape mode for smartphones */
+@media (max-width: 600px) and (orientation: landscape) {
+    .button-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .button {
+        max-width: 45%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    nav ul {
+        flex-direction: row;
+    }
+
+    nav ul li {
+        margin: 5px 10px;
+    }
 }
