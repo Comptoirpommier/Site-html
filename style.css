@@ -1,5 +1,5 @@
 /* Global Styles */
-body, html {
+.main-content {
     font-family: Poppins, sans-serif;
     font-size: 16px;
     height: 100%;
@@ -8,15 +8,6 @@ body, html {
     text-align: center;
     background-color: #f9f9f9;
     box-sizing: border-box;
-}
-
-*, *::before, *::after {
-    box-sizing: inherit;
-}
-
-h1 {
-    color: #FFFFFF;
-    font-size: 2em;
 }
 
 /* Container */
@@ -29,6 +20,10 @@ h1 {
     margin: 0 auto;
 }
 
+.container * {
+    box-sizing: inherit;
+}
+
 /* Header */
 .header {
     text-align: center;
@@ -37,6 +32,10 @@ h1 {
     padding: 20px;
 }
 
+.header h1 {
+    color: #FFFFFF;
+    font-size: 2em;
+}
 /* Logo */
 .logo-wrapper {
     margin-bottom: 50px;
@@ -419,14 +418,14 @@ footer {
     .column {
         width: 100%;
         align-items: center;
-    }
+}
 
     .button {
         max-width: 50%;
         display: block;
         padding: 10px 0;
-        font-size: 14px
-
+        font-size: 14px;
+}
     nav ul li {
         margin: 2px 5px;
     }
