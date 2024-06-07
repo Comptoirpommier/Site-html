@@ -421,12 +421,12 @@ footer {
 }
 
     .button {
-        max-width: 100%;
-        display: block;
-        padding: 10px 0;
-        font-size: 14px;
-}
+        max-width: 90%; /* Ajuster la largeur maximale des boutons */
+        width: auto; /* Permettre aux boutons de s'adapter à la taille de leur contenu */
+        text-align: center; /* Centrer le texte à l'intérieur des boutons */
+        margin: 10px auto; /* Centrer les boutons horizontalement avec un espacement entre eux */
+    }
     nav ul li {
-        margin: 2px 5px;
+        margin: 5px 0; /* Espacement entre les éléments de la liste de navigation */
     }
 }
