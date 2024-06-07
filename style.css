@@ -57,19 +57,22 @@ h1 {
     padding: 10px 0;
     margin-bottom: 20px;
 }
+
 .banner span {
     font: italic 16px 'Poppins', sans-serif;
     color: #AA0078;
     letter-spacing: 0.5px;
     margin-left: 10px;
 }
+
 @keyframes blink-animation {
     0% { opacity: 1; }
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
+
 .blink {
-    animation: blink-animation 1s infinite; /* Ajouter une animation de clignotement */
+    animation: blink-animation 1s infinite;
 }
 
 /* Navigation */
@@ -422,74 +425,7 @@ footer {
         max-width: 100%;
         display: block;
         padding: 10px 0;
-        font-size: 14px;
-    }
-
-    .dropdown-content {
-        position: relative;
-        width: 100%;
-    }
-
-    .dropdown-content a {
-        display: block;
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    .logo {
-        width: 80%;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    nav ul li a {
-        font-size: 1.2em;
-    }
-
-    .social-links {
-    margin-top: 0;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.social-links img {
-    width: 30px;
-    height: auto;
-    margin: 30;
-}
-}
-
-/* Landscape mode for smartphones */
-@media (max-width: 600px) and (orientation: landscape) {
-    .button-container {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 5px;
-    }
-
-    .button {
-        max-width: 25%;
-        padding: 5px;
-        font-size: 12px;
-        margin: 1px;
-    }
-
-    nav ul {
-        flex-direction: row;
-    }
+        font-size: 14px
 
     nav ul li {
         margin: 2px 5px;
