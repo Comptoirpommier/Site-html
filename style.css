@@ -1,13 +1,22 @@
 /* Global Styles */
-.main-content {
+body, html {
     font-family: Poppins, sans-serif;
     font-size: 16px;
-     min-height: 100vh; /* Ajustez pour éviter le débordement */
+    height: 100%;
     margin: 0;
     padding: 0;
     text-align: center;
     background-color: #f9f9f9;
     box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+h1 {
+    color: #FFFFFF;
+    font-size: 2em;
 }
 
 /* Container */
@@ -20,10 +29,6 @@
     margin: 0 auto;
 }
 
-.container * {
-    box-sizing: inherit;
-}
-
 /* Header */
 .header {
     text-align: center;
@@ -32,10 +37,6 @@
     padding: 20px;
 }
 
-.header h1 {
-    color: #FFFFFF;
-    font-size: 2em;
-}
 /* Logo */
 .logo-wrapper {
     margin-bottom: 50px;
@@ -56,22 +57,19 @@
     padding: 10px 0;
     margin-bottom: 20px;
 }
-
 .banner span {
     font: italic 16px 'Poppins', sans-serif;
     color: #AA0078;
     letter-spacing: 0.5px;
     margin-left: 10px;
 }
-
 @keyframes blink-animation {
     0% { opacity: 1; }
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
-
 .blink {
-    animation: blink-animation 1s infinite;
+    animation: blink-animation 1s infinite; /* Ajouter une animation de clignotement */
 }
 
 /* Navigation */
@@ -129,6 +127,8 @@ nav ul li a {
 
 /* Buttons */
 .button-container {
+    list-style-type: none;
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -141,10 +141,12 @@ nav ul li a {
 }
 
 .button {
-    flex: 1 1 auto; /* Assurez-vous que les boutons peuvent se redimensionner */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     max-width: 180px;
     padding: 15px 20px;
-    margin: 10px;
     border: 2px solid black;
     background-color: white;
     color: black;
@@ -404,20 +406,92 @@ footer {
     cursor: pointer;
 }
 
+/* Responsive Design */
 @media (max-width: 600px) {
     .button-container {
-        flex-direction: row; /* Modifier la direction du flexbox pour afficher les boutons en ligne */
-        flex-wrap: wrap; /* Permettre le retour à la ligne des boutons si nécessaire */
-        justify-content: center; /* Centrer les boutons horizontalement */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column {
+        width: 100%;
+        align-items: center;
     }
 
     .button {
-        width: calc(33.33% - 20px); /* Définir la largeur des boutons pour qu'ils occupent environ un tiers de l'écran avec un espacement */
-        max-width: 100%; /* Limiter la largeur maximale des boutons */
-        margin: 10px; /* Espacement entre les boutons */
+        max-width: 100%;
+        display: block;
+        padding: 10px 0;
+        font-size: 14px;
+    }
+
+    .dropdown-content {
+        position: relative;
+        width: 100%;
+    }
+
+    .dropdown-content a {
+        display: block;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .logo {
+        width: 80%;
+    }
+
+    nav ul {
+        flex-direction: column;
     }
 
     nav ul li {
-        margin: 5px 0; /* Espacement entre les éléments de la liste de navigation */
+        display: block;
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+    }
+
+    .social-links {
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.social-links img {
+    width: 30px;
+    height: auto;
+    margin: 30;
+}
+}
+
+/* Landscape mode for smartphones */
+@media (max-width: 600px) and (orientation: landscape) {
+    .button-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .button {
+        max-width: 25%;
+        padding: 5px;
+        font-size: 12px;
+        margin: 1px;
+    }
+
+    nav ul {
+        flex-direction: row;
+    }
+
+    nav ul li {
+        margin: 2px 5px;
     }
 }
