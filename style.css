@@ -62,6 +62,9 @@ h1 {
     letter-spacing: 1px;
     margin-left: 10px;
 }
+.blink {
+    animation: blink-animation 1s infinite; /* Ajouter une animation de clignotement */
+}
 /* Navigation */
 nav ul {
     list-style: none;
