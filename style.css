@@ -67,7 +67,7 @@ h1 {
     margin-left: 10px;
     display: inline-block; /* Nécessaire pour l'animation */
     padding-left: 100%; /* Espace initial avant le début du défilement */
-    animation: marquee 10s linear infinite;
+    animation: marquee 20s linear infinite;
 }
 
 @keyframes marquee {
@@ -75,7 +75,7 @@ h1 {
     to { transform: translateX(-100%); }
 }
 .blink {
-    animation: blink-animation 1s infinite; /* Ajouter une animation de clignotement */
+    animation: blink-animation 2s infinite; /* Ajouter une animation de clignotement */
 }
 
 /* Navigation */
