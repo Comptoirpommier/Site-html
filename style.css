@@ -56,26 +56,20 @@ h1 {
     background-color: #D3D3D3;
     padding: 10px 0;
     margin-bottom: 20px;
-    overflow: hidden; /* Assure que le contenu en excès est caché */
-    white-space: nowrap; /* Empêche le texte de se plier à la ligne suivante */
 }
-
 .banner span {
-    font: italic 18px 'Poppins', sans-serif;
+    font: italic 16px 'Poppins', sans-serif;
     color: #AA0078;
     letter-spacing: 0.5px;
     margin-left: 10px;
-    display: inline-block; /* Nécessaire pour l'animation */
-    padding-left: 100%; /* Espace initial avant le début du défilement */
-    animation: marquee 40s linear infinite;
 }
-
-@keyframes marquee {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
+@keyframes blink-animation {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
 .blink {
-    animation: blink-animation 2s infinite; /* Ajouter une animation de clignotement */
+    animation: blink-animation 1s infinite; /* Ajouter une animation de clignotement */
 }
 
 /* Navigation */
