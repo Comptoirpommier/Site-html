@@ -67,7 +67,7 @@ h1 {
     margin-left: 10px;
     display: inline-block; /* Nécessaire pour l'animation */
     padding-left: 100%; /* Espace initial avant le début du défilement */
-    animation: marquee 20s linear infinite;
+    animation: marquee 40s linear infinite;
 }
 
 @keyframes marquee {
