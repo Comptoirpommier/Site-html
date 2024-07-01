@@ -12,7 +12,6 @@ body {
     line-height: 1.6;
     background-color: #f9f9f9; /* Couleur de fond */
 }
-
 /* Conteneur principal */
 .main-container {
     display: flex;
