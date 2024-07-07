@@ -1,7 +1,7 @@
  /* Styles globaux */
 body, html { /* Styles pour le corps et le HTML */
     font-family: 'Poppins', sans-serif; /* Police de caractères */
-    font-size: 16px; /* Taille de la police */
+    font-size: 18px; /* Taille de la police */
     height: 100vh; /* Hauteur de 100% */
     margin: 0; /* Pas de marge */
     padding: 0; /* Pas de padding */
@@ -174,7 +174,7 @@ body, html { /* Styles pour le corps et le HTML */
     display: block; /* Affichage en bloc */
     width: 100%; /* Largeur de 100% */
     text-align: left; /* Alignement du texte à gauche */
-    font-size: 12px; /* Taille de la police */
+    font-size: 18px; /* Taille de la police */
     font-family: 'Roboto', sans-serif; /* Police de caractères */
 }
 
