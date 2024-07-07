@@ -1,501 +1,558 @@
-/* Global Styles */
-body, html {
-    font-family: Poppins, sans-serif; /* Utilise la police Poppins, avec une alternative sans-serif */
-    font-size: 16px; /* Définit la taille de la police à 16 pixels */
-    height: 100%; /* Définit la hauteur à 100% de la fenêtre */
-    margin: 0; /* Supprime les marges par défaut */
-    padding: 0; /* Supprime les espacements internes par défaut */
-    text-align: center; /* Centre le texte horizontalement */
-    background-color: #f9f9f9; /* Définit la couleur de fond à une teinte claire de gris */
-    box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur et la hauteur */
+ /* Styles globaux */
+body, html { /* Styles pour le corps et le HTML */
+    font-family: 'Poppins', sans-serif; /* Police de caractères */
+    font-size: 16px; /* Taille de la police */
+    height: 100vh; /* Hauteur de 100% */
+    margin: 0; /* Pas de marge */
+    padding: 0; /* Pas de padding */
+    text-align: center; /* Alignement du texte au centre */
+    background-color: white; /* Couleur de fond white */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la taille totale */
+    display: flex; /* Utilise flexbox */
+    flex-direction: column; /* Direction de la flexbox en colonne */
+    align-items: center; /* Aligne les éléments au centre */
 }
 
-*, *::before, *::after {
-    box-sizing: inherit; /* Hérite de la propriété box-sizing définie dans body */
+*, *::before, *::after { /* Styles pour tous les éléments et pseudo-éléments */
+    box-sizing: inherit; /* Hérite de box-sizing */
 }
 
-h1 {
-    color: #FFFFFF; /* Définit la couleur du texte à blanc */
-    font-size: 2em; /* Définit la taille de la police à 2 fois la taille de base */
+/* Conteneur */
+.container { /* Styles pour le conteneur principal */
+    position: relative; /* Position relative */
+    display: flex; /* Utilise flexbox */
+    flex-direction: column; /* Direction en colonne */
+    align-items: center; /* Aligne les éléments au centre */
+    padding: 10px; /* Padding de 10px */
+    margin: 0 auto; /* Centre horizontalement */
 }
 
-/* Container */
-.container {
-    display: flex; /* Utilise un conteneur flexbox */
-    flex-direction: column; /* Aligne les éléments enfants en colonne */
-    align-items: center; /* Centre les éléments horizontalement */
-    padding: 10px; /* Ajoute un padding de 20 pixels autour du conteneur */
-    max-width: 1500px; /* Définit une largeur maximale de 1500 pixels */
-    margin: 0 auto; /* Centre le conteneur horizontalement */
+/* En-tête */
+.header-container { /* Styles pour le conteneur de l'en-tête */
+    width: 100vw; /* Largeur de 100% */
+    height: 290px; /* Hauteur de 150px */
+    background-color: #ffffff; /* Couleur de fond blanche */
+    border-bottom: 1px solid #e0e0e0; /* Bordure inférieure */
+    padding: 10px; /* Padding de 10px */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la taille totale */
+    position: relative; /* Position relative */
+    text-align: center; /* Alignement du texte au centre */
+    margin-bottom: 10px; /* Marge inférieure de 10px */
 }
 
-/* Header */
-.header {
-    text-align: center; /* Centre le texte */
-    margin-bottom: 10px; /* Ajoute une marge inférieure de 20 pixels */
-    background-color: #D3D3D3; /* Définit la couleur de fond à une teinte claire de gris */
-    padding: 10px; /* Ajoute un padding de 20 pixels autour de l'élément */
+.header { /* Styles pour l'en-tête */
+    background-color: #D3D3D3; /* Couleur de fond */
+    padding: 10px; /* Padding de 10px */
 }
 
 /* Logo */
-.logo-wrapper {
-    margin-bottom: 20px; /* Ajoute une marge inférieure de 20 pixels */
-    text-align: center; /* Centre le texte */
+.header-logo-wrapper { /* Styles pour le conteneur du logo */
+    display: flex; /* Utilise flexbox */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Aligne les éléments au centre */
+    flex-direction: column; /* Direction en colonne */
+    margin: 30px 0 20px; /* Marge verticale */
 }
 
-.logo {
-    max-width: 100%; /* Définit une largeur maximale de 100% */
-    max-height: 300px; /* Définit une hauteur maximale de 300 pixels */
-    width: auto; /* Définit la largeur automatiquement pour garder les proportions */
-    opacity: 1; /* Définit l'opacité à 1 (pleinement opaque) */
+.logo { /* Styles pour le logo */
+    
+    height: auto; /* Hauteur automatique */
+    width: 400px; /* Largeur de 250px */
+    margin-top: 50px; /* Ajustez cette valeur pour décaler le logo vers le bas */
 }
 
-/* Banner */
-.banner {
-    flex: 1; /* Utilisation de flex pour ajuster la largeur */    
-    text-align: center; /* Centre le texte */
-    background-color: #D3D3D3; /* Définit la couleur de fond à une teinte claire de gris */
-    padding: 5px 0; /* Ajoute un padding vertical de 10 pixels */
-    margin-bottom: 5px; /* Ajoute une marge inférieure de 20 pixels */
-}
-.banner img {
-    height: 60px; /* Ajuste la hauteur de l'image promotionnelle */
-    margin-right: -25px; /* Ajoute une marge à droite pour séparer de texte */
-}
-.banner span {
-    font: italic 18px 'Poppins', sans-serif; /* Définit la police en italique à 16 pixels */
-    color: #AA0078; /* Définit la couleur du texte */
-    letter-spacing: 0.5px; /* Ajoute un espacement de 0.5 pixels entre les lettres */
-    margin-left: 0px; /* Ajoute une marge à gauche de 10 pixels */
-}
-@keyframes blink-animation {
-    0% { opacity: 1; } /* Pleinement opaque au début */
-    50% { opacity: 0; } /* Entièrement transparent au milieu */
-    100% { opacity: 1; } /* Pleinement opaque à la fin */
+/* Rangée supérieure contenant le menu, le logo et les icônes sociales */
+.top-row { /* Styles pour la rangée supérieure */
+    width: 100%; /* Largeur de 100% */
+    height: 130px; /* Hauteur de 150px */
+    display: flex; /* Utilise flexbox */
+    justify-content: space-between; /* Espace entre les éléments */
+    align-items: center; /* Aligne les éléments au centre */
 }
 
-/* Navigation */
-nav ul {
-    list-style: none; /* Supprime les puces de liste */
-    padding: 0; /* Supprime le padding */
-    margin: 0; /* Supprime la marge */
-    text-align: center; /* Centre le texte */
-    display: flex; /* Utilise un conteneur flexbox */
-    justify-content: center; /* Centre les éléments horizontalement */
-    flex-wrap: wrap; /* Permet de renvoyer les éléments sur la ligne suivante si nécessaire */
+.menu-icon { /* Styles pour l'icône du menu */
+    width: 40px; /* Largeur de 30px */
+    height: 40px; /* Hauteur de 30px */
+    margin-left: 20px; /* Marge à gauche de 20px */
+    margin-top: -60px; /* Marge en haut de -60px */
+    cursor: pointer; /* Curseur pointeur */
 }
 
-nav ul li {
-    display: inline-block; /* Affiche les éléments en ligne */
-    margin: 0 10px; /* Ajoute une marge horizontale de 10 pixels */
+.menu-icon img { /* Styles pour l'image de l'icône du menu */
+    width: 100%; /* Largeur de 100% */
+    height: 100%; /* Hauteur de 100% */
 }
 
-nav ul li a {
-    text-decoration: none; /* Supprime la décoration du texte */
-    color: #007bff; /* Définit la couleur du texte */
-    font-size: 1.5em; /* Définit la taille de la police à 1,5 fois la taille de base */
+/* Conteneur de recherche */
+.search-container { /* Styles pour le conteneur de recherche */
+    margin-top: 10px; /* Marge en haut de 25px */
 }
 
-/* Dropdown Menu */
-.dropdown {
-    position: relative; /* Définit une position relative pour l'élément */
-    display: inline-block; /* Affiche les éléments en ligne */
+.search-container input { /* Styles pour le champ de recherche */
+    width: 400px; /* Largeur de 400px */
+    height: 35px; /* Hauteur de 35px */
+    padding: 5px 10px; /* Padding interne */
+    border-radius: 20px; /* Bordures arrondies */
+    border: 1px solid #ccc; /* Bordure */
+    box-sizing: border-box; /* Inclut le padding dans la taille totale */
 }
 
-.dropdown-content {
-    display: none; /* Cache le contenu par défaut */
-    position: absolute; /* Positionne l'élément de manière absolue */
-    background-color: #f9f9f9; /* Définit la couleur de fond */
-    min-width: 160px; /* Définit une largeur minimale */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Ajoute une ombre */
-    z-index: 1; /* Définit l'ordre de superposition */
+.search-container button { /* Styles pour le bouton de recherche */
+    padding: 5px 10px; /* Padding interne */
+    border-radius: 20px; /* Bordures arrondies */
+    border: 1px solid #ccc; /* Bordure */
+    margin-left: 5px; /* Marge à gauche de 5px */
 }
 
-.dropdown-content a {
-    color: black; /* Définit la couleur du texte */
-    padding: 12px 16px; /* Ajoute un padding */
-    text-decoration: none; /* Supprime la décoration du texte */
-    display: block; /* Affiche les éléments en bloc */
-    text-align: left; /* Aligne le texte à gauche */
+/* Icônes sociales */
+.social-icons { /* Styles pour les icônes sociales */
+    display: flex; /* Utilise flexbox */
+    flex-direction: column; /* Direction en colonne */
+    align-items: flex-end; /* Aligne les éléments à droite */
+    margin-right: 20px; /* Marge à droite de 20px */
 }
 
-.dropdown-content a:hover {
-    background-color: #f1f1f1; /* Change la couleur de fond au survol */
+.social-icons img { /* Styles pour l'image des icônes sociales */
+    width: 25px; /* Largeur de 20px */
+    height: 25px; /* Hauteur de 20px */
+    margin-bottom: 10px; /* Marge en bas de 10px */
 }
 
-.dropdown:hover .dropdown-content {
-    display: block; /* Affiche le contenu au survol */
+/* Menu déroulant */
+.dropdown { /* Styles pour le conteneur du menu déroulant */
+    position: relative; /* Position relative */
+    display: inline-block; /* Affichage en ligne */
 }
 
-/* Buttons */
-.button-container {
-    list-style-type: none; /* Supprime les puces de liste */
-    padding: 0; /* Supprime le padding */
-    display: flex; /* Utilise un conteneur flexbox */
-    flex-wrap: wrap; /* Permet de renvoyer les éléments sur la ligne suivante si nécessaire */
-    gap: 10px; /* Ajoute un espace de 10 pixels entre les éléments */
-    justify-content: center; /* Centre les éléments horizontalement */
-    margin-top: 10px; /* Ajoute une marge supérieure de 20 pixels */
+.dropdown-content { /* Styles pour le contenu du menu déroulant */
+    display: none; /* Masqué par défaut */
+    position: absolute; /* Position absolue */
+    background-color: #f9f9f9; /* Couleur de fond */
+    min-width: 200px; /* Largeur minimale de 160px */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Ombre */
+    z-index: 1; /* Index z */
 }
 
-.button-container li {
-    margin: 0; /* Supprime la marge */
+.dropdown-content a { /* Styles pour les liens dans le menu déroulant */
+    color: black; /* Couleur du texte */
+    padding: 12px 16px; /* Padding interne */
+    text-decoration: none; /* Pas de soulignement */
+    display: block; /* Affichage en bloc */
+    text-align: left; /* Alignement du texte à gauche */
+    border-radius: 8px; /* Bordures arrondies */
 }
 
-.button {
-    display: flex; /* Utilise un conteneur flexbox */
-    justify-content: center; /* Centre les éléments horizontalement */
-    align-items: center; /* Centre les éléments verticalement */
-    width: 100%; /* Définit une largeur de 100% */
-    max-width: 180px; /* Définit une largeur maximale de 180 pixels */
-    padding: 15px 20px; /* Ajoute un padding */
-    border: 2px solid black; /* Définit une bordure noire de 2 pixels */
-    background-color: white; /* Définit la couleur de fond */
-    color: black; /* Définit la couleur du texte */
-    text-decoration: none; /* Supprime la décoration du texte */
-    text-align: center; /* Centre le texte */
-    font-size: 16px; /* Définit la taille de la police à 16 pixels */
-    border-radius: 8px; /* Ajoute des coins arrondis */
-    transition: background-color 0.3s, color 0.3s; /* Ajoute une transition pour les changements de couleur */
-    margin: 5px 0; /* Ajoute une marge verticale de 5 pixels */
+.dropdown-content a:hover { /* Styles au survol des liens */
+    background-color: #f1f1f1; /* Couleur de fond au survol */
 }
 
-.button:hover {
-    background-color: #45a049; /* Change la couleur de fond au survol */
-    color: white; /* Change la couleur du texte au survol */
+.dropdown:hover .dropdown-content { /* Styles lorsque le menu déroulant est survolé */
+    display: block; /* Affichage en bloc */
 }
 
-/* Search Button and Dropdown */
-.search-button-wrapper {
-    position: relative; /* Définit une position relative pour l'élément */
-    display: inline-block; /* Affiche les éléments en ligne */
-    margin-top: 20px; /* Ajoute une marge supérieure de 20 pixels */
+/* Styles spécifiques pour le menu déroulant */
+.dropdown-menu { /* Styles pour le menu déroulant */
+    display: none; /* Masqué par défaut */
+    flex-direction: column; /* Direction en colonne */
+    align-items: flex-start; /* Alignement à gauche */
+    background-color: #ffffff; /* Couleur de fond */
+    border: 1px solid #e0e0e0; /* Bordure */
+    width: 20%; /* Largeur de 20% */
+    max-height: 100vw; /* Hauteur maximale */
+    overflow-y: auto; /* Défilement vertical */
+    position: absolute; /* Position absolue */
+    top: 20px; /* Position du haut */
+    left: 0; /* Position de gauche */
+    z-index: 1000; /* Index z */
+    transition: display 0.5s ease-in-out; /* Transition */
 }
 
-.search-button {
-    background-color: #007bff; /* Définit la couleur de fond */
-    color: white; /* Définit la couleur du texte */
-    border: none; /* Supprime la bordure */
-    padding: 10px 20px; /* Ajoute un padding */
-    font-size: 16px; /* Définit la taille de la police à 16 pixels */
-    cursor: pointer; /* Change le curseur au survol */
-    border-radius: 8px; /* Ajoute des coins arrondis */
-    display: flex; /* Utilise un conteneur flexbox */
-    align-items: center; /* Centre les éléments verticalement */
+.dropdown-menu a { /* Styles pour les liens dans le menu déroulant */
+    padding: 5px; /* Padding interne */
+    text-decoration: none; /* Pas de soulignement */
+    color: black; /* Couleur du texte */
+    display: block; /* Affichage en bloc */
+    width: 100%; /* Largeur de 100% */
+    text-align: left; /* Alignement du texte à gauche */
+    font-size: 12px; /* Taille de la police */
+    font-family: 'Roboto', sans-serif; /* Police de caractères */
 }
 
-.search-icon {
-    width: 20px; /* Définit la largeur à 20 pixels */
-    height: 20px; /* Définit la hauteur à 20 pixels */
-    margin-right: 3px; /* Ajoute une marge à droite de 8 pixels */
+.dropdown-menu a:hover { /* Styles au survol des liens */
+    background-color: #ddd; /* Couleur de fond au survol */
 }
 
-.search-dropdown {
-    display: none; /* Cache le contenu par défaut */
-    position: absolute; /* Positionne l'élément de manière absolue */
-    background-color: #f9f9f9; /* Définit la couleur de fond */
-    min-width: 160px; /* Définit une largeur minimale */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Ajoute une ombre */
-    z-index: 1; /* Définit l'ordre de superposition */
-    margin-top: 10px; /* Ajoute une marge supérieure de 10 pixels */
-    border-radius: 8px; /* Ajoute des coins arrondis */
+/* Section de promotion */
+.promo-section { /* Styles pour la section de promotion */
+    padding: 20px; /* Padding de 20px */
+    text-align: center; /* Alignement du texte au centre */
+    flex-grow: 2; /* Grandit pour remplir l'espace disponible */
+    overflow-y: auto; /* Défilement vertical */ 
+    width: 100%;
+    max-width: 100vw; /* Agrandit au maximum de la largeur disponible */
+    margin: 0 auto; /* Centre la section sur la page */
 }
 
-.search-dropdown a {
-    color: black; /* Définit la couleur du texte */
-    padding: 12px 16px; /* Ajoute un padding */
-    text-decoration: none; /* Supprime la décoration du texte */
-    display: block; /* Affiche les éléments en bloc */
-    text-align: left; /* Aligne le texte à gauche */
-    border-radius: 8px; /* Ajoute des coins arrondis */
+.promo-section img { /* Styles pour les images dans la section de promotion */
+    max-width: 100%; /* Largeur maximale de 100% */
+    height: auto; /* Hauteur automatique */
 }
 
-.search-dropdown a:hover {
-    background-color: #f1f1f1; /* Change la couleur de fond au survol */
+.promo-title { /* Styles pour le titre de la promotion */
+    font-size: 24px; /* Taille de la police */
+    font-weight: bold; /* Texte en gras */
+    margin-top: 10px; /* Marge en haut de 10px */
 }
 
-.show {
-    display: block; /* Affiche l'élément */
+.promo-description { /* Styles pour la description de la promotion */
+    font-size: 16px; /* Taille de la police */
+    margin-top: 10px; /* Marge en haut de 10px */
+}
+/* Slideshow Container */
+    .slideshow-container {
+    display: none;    
+    position: relative;
+    width: 100%
+    max-width: 100vw
+    margin: auto;
+    margin-top: 20px; /* Marge en haut de 10px */
+    overflow: hidden;
+}
+/* Show slideshow container when promotions are available */
+.slideshow-container[data-promotions="true"] {
+    display: block;
 }
 
-/* Footer */
-footer {
-    display: flex; /* Utilise un conteneur flexbox */
-    justify-content: center; /* Centre les éléments horizontalement */
-    gap: 10px; /* Ajoute un espace de 10 pixels entre les éléments */
-    margin-top: 20px; /* Ajoute une marge supérieure de 20 pixels */
-    background-color: #ffffff; /* Définit la couleur de fond */
-    padding: 10px; /* Ajoute un padding de 10 pixels */
-    text-align: center; /* Centre le texte */
+/* Hide all slides by default */
+.slide {
+    display: none;
 }
 
-.social-links {
-    display: flex; /* Utilise un conteneur flexbox */
-    justify-content: space-between; /* Espacie les éléments de manière égale */
-    width: 100%; /* Définit une largeur de 100% */
-    margin-top: -10px; /* Ajoute une marge supérieure de 20 pixels */
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
 
-.social-links img {
-    width: 40px; /* Définit la largeur à 50 pixels */
-    height: auto; /* Ajuste la hauteur automatiquement pour garder les proportions */
-    margin: 0 40px; /* Ajoute une marge horizontale de 40 pixels */
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
 
-/* PDF2HTML Styles */
-#sidebar {
-    position: absolute; /* Positionne l'élément de manière absolue */
-    top: 0; /* Aligne en haut */
-    left: 0; /* Aligne à gauche */
-    bottom: 0; /* Aligne en bas */
-    width: 250px; /* Définit la largeur à 250 pixels */
-    padding: 0; /* Supprime le padding */
-    margin: 0; /* Supprime la marge */
-    overflow: auto; /* Ajoute un défilement si nécessaire */
+
+/* Styles supplémentaires pour le bouton de recherche et le menu déroulant */
+.search-button-wrapper { /* Styles pour le conteneur du bouton de recherche */
+    position: relative; /* Position relative */
+    display: inline-block; /* Affichage en ligne */
+    margin-top: 20px; /* Marge en haut de 20px */
 }
 
-#page-container {
-    position: absolute; /* Positionne l'élément de manière absolue */
-    top: 0; /* Aligne en haut */
-    left: 0; /* Aligne à gauche */
-    margin: 0; /* Supprime la marge */
-    padding: 0; /* Supprime le padding */
-    border: 0; /* Supprime la bordure */
-    overflow: auto; /* Ajoute un défilement si nécessaire */
-    transform-origin: 0 0; /* Définit l'origine de la transformation en haut à gauche */
-    transform: scale(1); /* Applique une échelle de 1 */
-    width: 100%; /* Définit une largeur de 100% */
-    height: 100%; /* Définit une hauteur de 100% */
+.search-button { /* Styles pour le bouton de recherche */
+    background-color: #007bff; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    padding: 10px 20px; /* Padding interne */
+    font-size: 16px; /* Taille de la police */
+    cursor: pointer; /* Curseur pointeur */
+    border-radius: 8px; /* Bordures arrondies */
+    display: flex; /* Utilise flexbox */
+    align-items: center; /* Aligne les éléments au centre */
+    transition: transform 0.2s;
+}
+#searchButton:active {
+    transform: scale(0.9);
 }
 
-@media screen and (min-width: 1024px) {
-    #page-container {
-        transform: scale(3); /* Applique une échelle de 3 */
-        width: calc(100% / 3); /* Définit la largeur à un tiers de 100% */
-        height: calc(100% / 3); /* Définit la hauteur à un tiers de 100% */
-    }
+
+.search-icon { /* Styles pour l'icône de recherche */
+    width: 20px; /* Largeur de 20px */
+    height: 20px; /* Hauteur de 20px */
+    margin-right: 3px; /* Marge à droite de 3px */
 }
 
-@media screen {
-    #sidebar.opened + #page-container {
-        left: 250px; /* Déplace le conteneur à droite de 250 pixels lorsque la barre latérale est ouverte */
-    }
-
-    #page-container {
-        bottom: 0; /* Aligne en bas */
-        right: 0; /* Aligne à droite */
-        overflow: auto; /* Ajoute un défilement si nécessaire */
-    }
-
-    .loading-indicator {
-        display: none; /* Cache l'indicateur de chargement par défaut */
-    }
-
-    .loading-indicator.active {
-        display: block; /* Affiche l'indicateur de chargement lorsqu'il est actif */
-        position: absolute; /* Positionne l'élément de manière absolue */
-        width: 64px; /* Définit la largeur à 64 pixels */
-        height: 64px; /* Définit la hauteur à 64 pixels */
-        top: 50%; /* Centre verticalement */
-        left: 50%; /* Centre horizontalement */
-        margin-top: -32px; /* Centre en utilisant une marge négative */
-        margin-left: -32px; /* Centre en utilisant une marge négative */
-    }
-
-    .loading-indicator img {
-        position: absolute; /* Positionne l'image de manière absolue */
-        top: 0; /* Aligne en haut */
-        left: 0; /* Aligne à gauche */
-        bottom: 0; /* Aligne en bas */
-        right: 0; /* Aligne à droite */
-    }
+.search-dropdown { /* Styles pour le menu déroulant de recherche */
+    display: none; /* Masqué par défaut */
+    position: absolute; /* Position absolue */
+    background-color: #f9f9f9; /* Couleur de fond */
+    min-width: 160px; /* Largeur minimale de 160px */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Ombre */
+    z-index: 1; /* Index z */
+    margin-top: 10px; /* Marge en haut de 10px */
+    border-radius: 8px; /* Bordures arrondies */
 }
 
-@media print {
-    @page {
-        margin: 0; /* Supprime la marge */
+.search-dropdown a { /* Styles pour les liens dans le menu déroulant de recherche */
+    color: black; /* Couleur du texte */
+    padding: 12px 16px; /* Padding interne */
+    text-decoration: none; /* Pas de soulignement */
+    display: block; /* Affichage en bloc */
+    text-align: left; /* Alignement du texte à gauche */
+    border-radius: 8px; /* Bordures arrondies */
+}
+
+.search-dropdown a:hover { /* Styles au survol des liens */
+    background-color: #f1f1f1; /* Couleur de fond au survol */
+}
+
+.show { /* Classe pour afficher un élément */
+    display: block; /* Affichage en bloc */
+}
+
+/* Design réactif */
+@media (max-width: 768px) {
+.header-container {
+        height: auto;
+        width: 100%;
+        padding: 5px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    html {
-        margin: 0; /* Supprime la marge */
+    .top-row {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: auto;
+        
     }
 
-    body {
-        margin: 0; /* Supprime la marge */
-        -webkit-print-color-adjust: exact; /* Ajuste les couleurs pour l'impression */
+    .menu-icon {
+        width:40%; /* Largeur maximale de 300px */
+        height: 40%;   
+        order: 1;
+    }
+    .logo { /* Styles pour le logo */
+        width:60%; /* Largeur maximale de 300px */
+        height: auto; /* Hauteur automatique */
+        opacity: 1; /* Opacité de 1 */   
+        
+    }
+     .logo-wrapper {
+        margin-left:0px;
+        order: 2;
+        margin-top:-25px;
+        margin-bottom:0px 
+        
     }
 
-    #sidebar {
-        display: none; /* Cache la barre latérale lors de l'impression */
+    .social-icons {
+        display: flex;
+        order: 3;
+        margin-left: 20px; /* Start with this */
+        margin-top: -10px; /* Ajustez ici pour remonter le bloc */
     }
 
-    #page-container {
-        width: auto; /* Définit une largeur automatique */
-        height: auto; /* Définit une hauteur automatique */
-        overflow: visible; /* Affiche tout le contenu */
-        background-color: transparent; /* Définit la couleur de fond à transparent */
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+        margin: 0 5px;
     }
 
-    .d {
-        display: none; /* Cache les éléments avec la classe .d lors de l'impression */
+    .search-container {
+        width: 100%;
+        margin: 20px auto;
+        display: flex; /* Ajoutez flex pour aligner les éléments horizontalement */
     }
-}
 
-.c {
-    position: absolute; /* Positionne l'élément de manière absolue */
-    border: 0; /* Supprime la bordure */
-    padding: 0; /* Supprime le padding */
-    margin: 0; /* Supprime la marge */
-    overflow: hidden; /* Cache le débordement */
-    display: block; /* Affiche l'élément en bloc */
-}
+    .search-container input {
+        width: 90%;
+        height: 25px;
+    }
 
-.t {
-    position: absolute; /* Positionne l'élément de manière absolue */
-    white-space: pre; /* Préserve les espaces blancs */
-    font-size: 1px; /* Définit la taille de la police à 1 pixel */
-    transform-origin: 0 100%; /* Définit l'origine de la transformation en bas à gauche */
-    -ms-transform-origin: 0 100%; /* Prend en charge les anciennes versions d'Internet Explorer */
-    -webkit-transform-origin: 0 100%; /* Prend en charge les anciens navigateurs WebKit */
-    unicode-bidi: bidi-override; /* Redéfinit la direction du texte */
-    -moz-font-feature-settings: "liga" 0; /* Désactive les ligatures dans Firefox */
-}
+    .search-container button {
+        margin-left: 5px;
+    }
 
-.t:after {
-    content: ''; /* Ajoute un pseudo-élément après */
-}
+    .dropdown-menu {
+        max-height: 150vh;
+    }
 
-.t:before {
-    content: ''; /* Ajoute un pseudo-élément avant */
-    display: inline-block; /* Affiche le pseudo-élément en ligne */
-}
+    .promo-section {
+        padding:10px;
+        height: Auto;
+    }
 
-.t span {
-    position: relative; /* Positionne l'élément de manière relative */
-    unicode-bidi: bidi-override; /* Redéfinit la direction du texte */
-}
+    .promo-title {
+        font-size: 20px;
+    }
 
-._ {
-    display: inline-block; /* Affiche l'élément en ligne */
-    color: transparent; /* Définit la couleur du texte à transparent */
-    z-index: -1; /* Positionne l'élément derrière les autres éléments */
-}
+    .promo-description {
+        font-size: 14px;
+    }
 
-::selection {
-    background: rgba(127, 255, 255, 0.4); /* Définit la couleur de fond de la sélection */
-}
+    .slideshow-container {
+        max-width: 100%;
+        height : Auto;
+    }
 
-::-moz-selection {
-    background: rgba(127, 255, 255, 0.4); /* Définit la couleur de fond de la sélection pour Firefox */
-}
-
-.pi {
-    display: none; /* Cache les éléments avec la classe .pi */
-}
-
-.d {
-    position: absolute; /* Positionne l'élément de manière absolue */
-    transform-origin: 0 100%; /* Définit l'origine de la transformation en bas à gauche */
-    -ms-transform-origin: 0 100%; /* Prend en charge les anciennes versions d'Internet Explorer */
-    -webkit-transform-origin: 0 100%; /* Prend en charge les anciens navigateurs WebKit */
-}
-
-.it {
-    border: 0; /* Supprime la bordure */
-    background-color: rgba(255, 255, 255, 0.0); /* Définit la couleur de fond à transparent */
-}
-
-.ir:hover {
-    cursor: pointer; /* Change le curseur au survol */
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
     .button-container {
-        flex-direction: column; /* Aligne les éléments en colonne */
-        align-items: center; /* Centre les éléments horizontalement */
+        flex-direction: column;
+        align-items: center;
     }
 
     .column {
-        width: 100%; /* Définit une largeur de 100% */
-        align-items: center; /* Centre les éléments horizontalement */
+        width: 100%;
+        align-items: center;
     }
 
     .button {
-        max-width: 100%; /* Définit une largeur maximale de 100% */
-        display: block; /* Affiche l'élément en bloc */
-        padding: 10px 0; /* Ajoute un padding vertical */
-        font-size: 14px; /* Définit la taille de la police à 14 pixels */
-    }
-
-    .dropdown-content {
-        position: relative; /* Positionne l'élément de manière relative */
-        width: 100%; /* Définit une largeur de 100% */
-    }
-
-    .dropdown-content a {
-        display: block; /* Affiche l'élément en bloc */
-        padding: 10px; /* Ajoute un padding */
-        font-size: 14px; /* Définit la taille de la police à 14 pixels */
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block; /* Affiche le contenu déroulant au survol */
-    }
-
-    .logo {
-        width: 80%; /* Définit la largeur à 80% */
-    }
-
-    nav ul {
-        flex-direction: column; /* Aligne les éléments en colonne */
-    }
-
-    nav ul li {
-        display: block; /* Affiche l'élément en bloc */
-        margin: 10px 0; /* Ajoute une marge verticale */
-    }
-
-    nav ul li a {
-        font-size: 1.2em; /* Définit la taille de la police à 1.2em */
-    }
-
-    .social-links {
-        margin-top: 0; /* Supprime la marge supérieure */
-        display: flex; /* Utilise un conteneur flexbox */
-        justify-content: space-between; /* Espacie les éléments de manière égale */
-        width: 100%; /* Définit une largeur de 100% */
-    }
-
-    .social-links img {
-        width: 30px; /* Définit la largeur à 30 pixels */
-        height: auto; /* Ajuste la hauteur automatiquement pour garder les proportions */
-        margin: 30; /* Ajoute une marge de 30 pixels */
+        max-width: 100%;
+        display: block;
+        padding: 10px 0;
     }
 }
+/* Design réactif */
+@media (max-width: 425px) {
+.header-container {
+        height: auto;
+        width: 100%;
+        padding: 5px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-/* Landscape mode for smartphones */
-@media (max-width: 600px) and (orientation: landscape) {
+    .top-row {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: auto;
+        
+    }
+
+    .menu-icon {
+        margin: 10px 5; /* Ajustez ici pour remonter le bouton menu */
+        order: 1;
+    }
+    .logo { /* Styles pour le logo */
+        width: 65%; /* Largeur maximale de 300px */
+        height: auto; /* Hauteur automatique */
+        opacity: 1; /* Opacité de 1 */   
+        
+    }
+     .logo-wrapper {
+        margin-left:0px;
+        order: 2;
+        margin-bottom:-5px;
+        
+    }
+
+    .social-icons {
+        display: flex;
+        order: 3;
+        margin-left: 20px; /* Start with this */
+        margin-top: -10px; /* Ajustez ici pour remonter le bloc */
+    }
+
+    .social-icons img {
+        width: 25px;
+        height: 25px;
+        margin: 0 5px;
+    }
+
+    .search-container {
+        width: 100%;
+        margin: 10px auto;
+        display: flex; /* Ajoutez flex pour aligner les éléments horizontalement */
+    }
+
+    .search-container input {
+        width: 90%;
+        height: 25px;
+    }
+
+    .search-container button {
+        margin-left: 5px;
+    }
+
+    .dropdown-menu {
+        max-height: 150vh;
+        width: 50%; /* Largeur de 20% */
+    }
+
+    .promo-section {
+        padding: 10px;
+    }
+
+    .promo-title {
+        font-size: 20px;
+    }
+
+    .promo-description {
+        font-size: 14px;
+    }
+
+    .slideshow-container {
+        max-width: 100%;
+    }
+
     .button-container {
-        flex-direction: row; /* Aligne les éléments en ligne */
-        flex-wrap: wrap; /* Permet le retour à la ligne */
-        justify-content: center; /* Centre les éléments horizontalement */
-        gap: 5px; /* Ajoute un espace de 5 pixels entre les éléments */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column {
+        width: 100%;
+        align-items: center;
     }
 
     .button {
-        max-width: 25%; /* Définit une largeur maximale de 25% */
-        padding: 5px; /* Ajoute un padding */
-        font-size: 12px; /* Définit la taille de la police à 12 pixels */
-        margin: 1px; /* Ajoute une marge */
-    }
-
-    nav ul {
-        flex-direction: row; /* Aligne les éléments en ligne */
-    }
-
-    nav ul li {
-        margin: 2px 5px; /* Ajoute une marge */
+        max-width: 100%;
+        display: block;
+        padding: 10px 0;
     }
 }
+/* Keyframes et animations */
+@keyframes marquee { /* Animation de défilement */
+    0% { transform: translateX(100%); } /* Début à droite */
+    100% { transform: translateX(-100%); } /* Fin à gauche */
+}
 
+@keyframes blink-animation { /* Animation de clignotement */
+    0% { opacity: 1; } /* Opacité maximale */
+    50% { opacity: 0; } /* Opacité nulle */
+    100% { opacity: 1; } /* Retour à l'opacité maximale */
+}
+
+.banner { /* Styles pour la bannière */
+    flex: 1; /* Prend tout l'espace disponible */
+    text-align: center; /* Alignement du texte au centre */
+    background-color: #D3D3D3; /* Couleur de fond Gris Clair */
+    padding: 5px 0; /* Padding interne */
+    margin-bottom: 5px; /* Marge en bas de 5px */
+    overflow: hidden; /* Cache le débordement */
+    position: relative; /* Position relative */
+}
+
+.banner img { /* Styles pour les images dans la bannière */
+    height: 20px; /* Hauteur de 20px */
+    margin-right: 20px; /* Marge à droite de 20px */
+}
+
+.banner span { /* Styles pour le texte dans la bannière */
+    font: italic 18px 'Poppins', sans-serif; /* Police en italique */
+    color: #AA0078; /* Couleur du texte Violet fonçé */
+    letter-spacing: 0.5px; /* Espacement des lettres */
+    margin-left: 0; /* Pas de marge à gauche */
+}
+
+.marquee-container { /* Styles pour le conteneur de défilement */
+    width: 150%; /* Largeur de 900px */
+    height: 30px; /* Hauteur de 30px */
+    overflow: hidden; /* Cache le débordement */
+    position: relative; /* Position relative */
+}
+
+.marquee-content { /* Styles pour le contenu de défilement */
+    display: inline-block; /* Affichage en ligne */
+    white-space: nowrap; /* Pas de retour à la ligne */
+    width: 150%; /* Largeur de 900px */
+    height: 30px; /* Hauteur de 30px */
+    position: absolute; /* Position absolue */
+    animation: marquee 25s linear infinite; /* Animation de défilement */
+}
