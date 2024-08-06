@@ -554,5 +554,5 @@ body, html { /* Styles pour le corps et le HTML */
     width: 150%; /* Largeur de 900px */
     height: 30px; /* Hauteur de 30px */
     position: absolute; /* Position absolue */
-    animation: marquee 35s linear infinite; /* Animation de défilement */
+    animation: marquee 15s linear infinite; /* Animation de défilement */
 }
