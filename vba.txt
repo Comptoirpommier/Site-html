@@ -1,0 +1,344 @@
+Sub GenerateHTML()
+    ' Déclaration des variables
+    Dim ws As Worksheet
+    Dim cell As Range
+    Dim fileNum As Integer
+    Dim folderPath As String
+    Dim productName As String
+    Dim outputFilePath As String
+    Dim imgFileJpg As String
+    Dim imgFilePng As String
+    Dim imgFile As String
+    Dim DebugMode As Boolean
+    
+    DebugMode = True ' Activer le mode débogage
+    
+    folderPath = ThisWorkbook.Path & "/images/" ' Chemin vers le dossier contenant les images - Notez l'utilisation de "/" au lieu de "\"
+    outputFilePath = ThisWorkbook.Path & "\output.html" 'outputFilePath = "C:\xampp\htdocs\output.html"' ' Chemin vers le fichier HTML de sortie
+    fileNum = FreeFile
+
+    ' Supprimer le fichier précédent s'il existe
+    If Dir(outputFilePath) <> "" Then
+        Kill outputFilePath
+    End If
+
+    Open outputFilePath For Output As #fileNum ' Ouvrir (ou créer) le fichier HTML
+
+    Print #fileNum, "<!DOCTYPE html>"
+    Print #fileNum, "<html>"
+    Print #fileNum, "<head>"
+    Print #fileNum, "<meta charset='UTF-8'>"
+    ' Ajouter la police Google
+    Print #fileNum, "<link href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap' rel='stylesheet'>"
+    Print #fileNum, "<link rel='stylesheet' type='text/css' href='style.css'>" ' Lien vers le fichier CSS externe
+   
+    ' Ajouter le script personnalisé pour les tris de produits
+    Print #fileNum, "<div id='loading' style='position:fixed; top:0; left:0; width:100%; height:100%; background:white; z-index:1000;'></div>"
+    
+    
+    Print #fileNum, "</head>"
+    Print #fileNum, "<body>"
+    Print #fileNum, "<div class='main-container'>"
+
+    For Each ws In ThisWorkbook.Worksheets
+        
+        For Each cell In ws.Range("J2:J" & ws.Cells(ws.Rows.Count, "J").End(xlUp).row)
+            ' Ajouter la vérification pour "EM ESTOQUE"
+            If Trim(ws.Cells(cell.row, "S").Value) = "EM ESTOQUE" Then
+        
+            ' Vérifier si la ligne contient des données significatives
+            If Application.WorksheetFunction.CountA(cell.EntireRow) > 0 And Trim(cell.Value) <> "" Then
+                ' Nettoyer le nom du produit pour le HTML
+                productName = ReplaceInvalidChars(cell.Value, False)
+                
+                imgFileJpg = folderPath & ReplaceInvalidChars(productName, False) & ".jpg"
+                imgFilePng = folderPath & ReplaceInvalidChars(productName, False) & ".png"
+                
+                'Obtenir les paramètres pour les lignes invisibles
+                 Dim familia As String
+                 Dim categorie As String
+                 Dim cor As String
+                 Dim tipo As String
+                 Dim preco As String
+                 Dim Geladeira As String
+                 Dim UVA As String
+            
+                 familia = ws.Cells(cell.row, "E").Value
+                 categorie = ws.Cells(cell.row, "F").Value
+                 cor = ws.Cells(cell.row, "G").Value
+                 tipo = ws.Cells(cell.row, "H").Value
+                 preco = ws.Cells(cell.row, "R").Value
+                 Geladeira = ws.Cells(cell.row, "I").Value
+                 UVA = ws.Cells(cell.row, "K").Value
+                  ' Ajouter les attributs data-* pour le filtrage
+                Print #fileNum, "<div class='product-container' data-familia='" & familia & "' data-categorie='" & categorie & "' data-cor='" & cor & "' data-tipo='" & tipo & "' data-preco='" & preco & "' data-Geladeira='" & Geladeira & "'data-UVA='" & UVA & "'>"
+                
+                ' Conteneur de l'image
+                Print #fileNum, "<div class='image-container'>"
+                
+               ' Définir imgFile en fonction de la présence de fichiers JPG ou PNG
+               If FileExists(folderPath & ReplaceInvalidChars(productName, False) & ".jpg") Then
+                  imgFile = "images/" & ReplaceInvalidChars(productName, False) & ".jpg"
+               ElseIf FileExists(folderPath & ReplaceInvalidChars(productName, False) & ".png") Then
+                  imgFile = "images/" & ReplaceInvalidChars(productName, False) & ".png"
+               Else
+                imgFile = "" ' Si aucun fichier n'est trouvé, imgFile reste vide
+               End If
+                
+                ' Afficher l'image si elle existe
+                If imgFile <> "" Then
+                    ' Convertir les espaces en %20 pour l'URL
+                    Dim imgFileURL As String
+                    imgFileURL = Replace(imgFile, " ", "%20")
+                    Print #fileNum, "<img src='" & Replace(imgFileURL, "\", "/") & "' alt='" & Replace(productName, "'", "&#39;") & "' />"
+                Else
+                   Print #fileNum, "<p><strong>URL de l'image : " & Replace(imgFile, "'", "&#39;") & "</strong></p>"
+                End If
+                Print #fileNum, "</div>" ' Fermeture de .image-container
+                
+                ' Conteneur du texte
+                Print #fileNum, "<div class='text-container'>"
+                                                
+                ' Nom du produit
+                Print #fileNum, "<div class='line product-name'>" & Replace(cell.Value, "'", "&#39;") & "</div>"
+                ' Uva
+                Print #fileNum, "<div class='line-container'>"
+                Print #fileNum, "<div class='line uva'><strong style='color: gray;'>Uva/Composição: </strong>" & Replace(ws.Cells(cell.row, "K").Value, "'", "&#39;") & "</div>"
+                Print #fileNum, "</div>"
+
+                ' Pais
+                Print #fileNum, "<div class='line-container'>"
+                Print #fileNum, "<div class='line pais'><strong style='color: gray;'>Pais: </strong>" & Replace(ws.Cells(cell.row, "L").Value, "'", "&#39;") & "</div>"
+                Print #fileNum, "</div>"
+
+                ' Produtoro
+                Print #fileNum, "<div class='line-container'>"
+                Print #fileNum, "<div class='line produtoro'><strong style='color: gray;'>Produtoro: </strong><a href='" & Replace(ws.Cells(cell.row, "N").Value, "'", "&#39;") & "' target='_blank'>" & Replace(ws.Cells(cell.row, "M").Value, "'", "&#39;") & "</a></div>"
+                Print #fileNum, "</div>"
+
+                ' Comentarios
+                Print #fileNum, "<div class='line-container'>"
+                Print #fileNum, "<div class='line comentarios'><strong style='color: gray;'>Comentarios: </strong>" & Replace(ws.Cells(cell.row, "O").Value, "'", "&#39;") & "</div>"
+                Print #fileNum, "</div>"
+
+                ' Harmonização
+                Print #fileNum, "<div class='line-container'>"
+                Print #fileNum, "<div class='line harmonizacao'><strong style='color: gray;'>Harmonização: </strong>" & Replace(ws.Cells(cell.row, "P").Value, "'", "&#39;") & "</div>"
+                Print #fileNum, "</div>"
+
+                ' Preço no Cartão
+                Print #fileNum, "<div class='line-container'>"
+                Print #fileNum, "<div class='line preco'><strong style='color: gray;'>No Cartão até 3x sem Juros:</strong><strong style='color: black;'> R$ " & Replace(ws.Cells(cell.row, "Q").Value, "'", "&#39;") & "</strong></div>"
+                Print #fileNum, "</div>"
+
+                ' Preço no Pix
+                Print #fileNum, "<div class='line-container'>"
+                Print #fileNum, "<div class='line preco'><strong style='color: gray;'>No Pix: </strong><strong style='color: black;'>R$ " & Replace(ws.Cells(cell.row, "R").Value, "'", "&#39;") & "</strong></div>"
+                Print #fileNum, "</div>"
+              
+                ' Em Estoque
+                Print #fileNum, "<div class='line-container'>"
+                Print #fileNum, "<div class='line estoque'style='color: red;display: none;'><strong>" & Replace(ws.Cells(cell.row, "S").Value, "'", "&#39;") & "</strong></div>"
+                Print #fileNum, "</div>"
+
+                Print #fileNum, "</div>" ' Fermeture de .text-container
+                
+                Print #fileNum, "</div>" ' Fermeture de .product-container
+             End If
+            End If
+        Next cell
+    Next ws
+    
+     ' Ajouter le script jQuery
+    Print #fileNum, "<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>"
+    Print #fileNum, "<script>"
+    Print #fileNum, "$(document).ready(function() {"
+    Print #fileNum, "    function getUrlParameter(sParam) {"
+    Print #fileNum, "        var sPageURL = window.location.search.substring(1);"
+    Print #fileNum, "        var sURLVariables = sPageURL.split('&');"
+    Print #fileNum, "        for (var i = 0; i < sURLVariables.length; i++) {"
+    Print #fileNum, "            var sParameterName = sURLVariables[i].split('=');"
+    Print #fileNum, "            if (sParameterName[0] === sParam) {"
+    Print #fileNum, "                return decodeURIComponent(sParameterName[1]);"
+    Print #fileNum, "            }"
+    Print #fileNum, "        }"
+    Print #fileNum, "        return null;"
+    Print #fileNum, "    }"
+    Print #fileNum, ""
+    Print #fileNum, "    var familia = getUrlParameter('familia');"
+    Print #fileNum, "    var categoria = getUrlParameter('categoria');"
+    Print #fileNum, "    var cor = getUrlParameter('cor');"
+    Print #fileNum, "    var tipo = getUrlParameter('tipo');"
+    Print #fileNum, "    var preco = getUrlParameter('preco');"
+    Print #fileNum, "    var Geladeira = getUrlParameter('Geladeira');"
+    Print #fileNum, "    var UVA= getUrlParameter('UVA');"
+    Print #fileNum, ""
+    Print #fileNum, "    console.log('familia:', familia);"
+    Print #fileNum, "    console.log('categoria:', categoria);"
+    Print #fileNum, "    console.log('cor:', cor);"
+    Print #fileNum, "    console.log('tipo:', tipo);"
+    Print #fileNum, "    console.log('preco:', preco);"
+    Print #fileNum, "    console.log('Geladeira:', Geladeira);"
+    Print #fileNum, "    console.log('UVA:', UVA);"
+    Print #fileNum, ""
+    Print #fileNum, "    $('.product-container').hide().filter(function() {"
+    Print #fileNum, "        var match = true;"
+    Print #fileNum, "        if (familia && $(this).data('familia') !== familia) {"
+    Print #fileNum, "            match = false;"
+    Print #fileNum, "        }"
+    Print #fileNum, "        if (categoria && $(this).data('categorie') !== categoria) {"
+    Print #fileNum, "            match = false;"
+    Print #fileNum, "        }"
+    Print #fileNum, "        if (cor && $(this).data('cor') !== cor) {"
+    Print #fileNum, "            match = false;"
+    Print #fileNum, "        }"
+    Print #fileNum, "        if (tipo && $(this).data('tipo') !== tipo) {"
+    Print #fileNum, "            match = false;"
+    Print #fileNum, "        }"
+    Print #fileNum, "        if (preco && $(this).data('preco') !== preco) {"
+    Print #fileNum, "            match = false;"
+    Print #fileNum, "        }"
+    Print #fileNum, "        if (Geladeira && $(this).data('geladeira') !== Geladeira) {"
+    Print #fileNum, "            match = false;"
+    Print #fileNum, "        }"
+    Print #fileNum, "        if (UVA && $(this).data('UVA') !== UVA) {"
+    Print #fileNum, "            match = false;"
+    Print #fileNum, "        }"
+    Print #fileNum, "        console.log('Match:', match, $(this));"
+    Print #fileNum, "        return match;"
+    Print #fileNum, "    }).show();"
+    Print #fileNum, "    $('#loading').hide();"
+    Print #fileNum, "});"
+    Print #fileNum, "</script>"
+    
+    Print #fileNum, "<script>"
+Print #fileNum, "$(document).ready(function() {"
+Print #fileNum, "    function sortAndDisplayProducts() {"
+Print #fileNum, "        var products = $('.product-container');"
+Print #fileNum, "        var sortedProducts = products.sort(function(a, b) {"
+Print #fileNum, "            var familiaA = $(a).data('familia').toString().toLowerCase();"
+Print #fileNum, "            var familiaB = $(b).data('familia').toString().toLowerCase();"
+Print #fileNum, "            var categoriaA = $(a).data('categorie').toString().toLowerCase();"
+Print #fileNum, "            var categoriaB = $(b).data('categorie').toString().toLowerCase();"
+Print #fileNum, "            var corA = $(a).data('cor').toString().toLowerCase();"
+Print #fileNum, "            var corB = $(b).data('cor').toString().toLowerCase();"
+Print #fileNum, "            var tipoA = $(a).data('tipo').toString().toLowerCase();"
+Print #fileNum, "            var tipoB = $(b).data('tipo').toString().toLowerCase();"
+Print #fileNum, "            var priceA = parseFloat($(a).data('preco'));"
+Print #fileNum, "            var priceB = parseFloat($(b).data('preco'));"
+
+Print #fileNum, "            if (familiaA < familiaB) return -1;"
+Print #fileNum, "            if (familiaA > familiaB) return 1;"
+Print #fileNum, "            if (categoriaA < categoriaB) return -1;"
+Print #fileNum, "            if (categoriaA > categoriaB) return 1;"
+Print #fileNum, "            if (corA < corB) return -1;"
+Print #fileNum, "            if (corA > corB) return 1;"
+Print #fileNum, "            if (tipoA < tipoB) return -1;"
+Print #fileNum, "            if (tipoA > tipoB) return 1;"
+Print #fileNum, "            return priceA - priceB;"
+Print #fileNum, "        });"
+Print #fileNum, "        $('.main-container').html(sortedProducts);"
+Print #fileNum, "    }"
+Print #fileNum, "    sortAndDisplayProducts();"
+Print #fileNum, "});"
+Print #fileNum, "</script>"
+
+' Ajouter le script JavaScript pour la recherche
+Print #fileNum, "    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>"
+    Print #fileNum, "    <script>"
+    Print #fileNum, "    $(document).ready(function() {"
+    Print #fileNum, "        // Fonction pour filtrer les produits par mots-clés"
+    Print #fileNum, "        function filterProducts(searchTerm) {"
+    Print #fileNum, "            var searchTermLower = searchTerm.toLowerCase();"
+    Print #fileNum, "            $('.product-container').hide();"
+    Print #fileNum, "            $('.text-container').each(function() {"
+    Print #fileNum, "                var productText = $(this).text().toLowerCase();"
+    Print #fileNum, "                if (productText.includes(searchTermLower)) {"
+    Print #fileNum, "                    $(this).closest('.product-container').show();"
+    Print #fileNum, "                }"
+    Print #fileNum, "            });"
+    Print #fileNum, "        }"
+    Print #fileNum, ""
+    Print #fileNum, "        // Obtenir le terme de recherche de l'URL"
+    Print #fileNum, "        var urlParams = new URLSearchParams(window.location.search);"
+    Print #fileNum, "        var searchTerm = urlParams.get('search');"
+    Print #fileNum, "        if (searchTerm) {"
+    Print #fileNum, "            filterProducts(searchTerm);"
+    Print #fileNum, "        }"
+    Print #fileNum, ""
+    Print #fileNum, "        // Gestion de la recherche lorsque la touche Entrée est pressée"
+    Print #fileNum, "        $('#searchInput').keypress(function(event) {"
+    Print #fileNum, "            if (event.which === 13) {"
+    Print #fileNum, "                var searchTerm = $(this).val();"
+    Print #fileNum, "                filterProducts(searchTerm);"
+    Print #fileNum, "            }"
+    Print #fileNum, "        });"
+    Print #fileNum, ""
+    Print #fileNum, "        // Gestion de la recherche lorsque le bouton de recherche est cliqué"
+    Print #fileNum, "        $('#searchButton').click(function() {"
+    Print #fileNum, "            var searchTerm = $('#searchInput').val();"
+    Print #fileNum, "            filterProducts(searchTerm);"
+    Print #fileNum, "        });"
+    Print #fileNum, "    });"
+    Print #fileNum, "</script>"
+    Print #fileNum, "</div>" ' Fermeture de .main-container
+    Print #fileNum, "</body>"
+    Print #fileNum, "</html>"
+
+    Close #fileNum
+    
+    MsgBox "Fichier HTML généré avec succès!"
+End Sub
+
+' Fonction pour vérifier si un fichier existe
+Function FileExists(filePath As String) As Boolean
+    FileExists = (Dir(filePath) <> "")
+End Function
+
+' Fonction pour remplacer les caractères invalides dans les noms de fichiers
+Function ReplaceInvalidChars(inputString As String, Optional replaceSpaces As Boolean = True) As String
+    ' Remplacer certains caractères spéciaux par des tirets bas ou des entités HTML appropriées
+    Dim specialChars As Variant
+    specialChars = Array(":", "\", "/", "*", "?", """", "<", ">", "|", ",", ".", "%", "'", "°", "á", "é", "í", "ó", "ú", "ã", "õ", "ç")
+    
+    Dim replacementChars As Variant
+    replacementChars = Array("_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "&aacute;", "&eacute;", "&iacute;", "&oacute;", "&uacute;", "&atilde;", "&otilde;", "&ccedil;")
+    
+    Dim J As Integer
+    For J = LBound(specialChars) To UBound(specialChars)
+        inputString = Replace(inputString, specialChars(J), replacementChars(J))
+    Next J
+
+ ' Remplacer les espaces par des underscores si l'option est activée   
+    If replaceSpaces Then
+        inputString = Replace(inputString, " ", "_")
+    End If
+    
+    ReplaceInvalidChars = inputString
+End Function
+
+' Fonction pour encoder une URL
+Function EncodeURL(inputString As String) As String
+    Dim J As Integer
+    Dim char As String
+    Dim encodedString As String
+    
+    encodedString = ""
+    
+    For J = 1 To Len(inputString)
+        char = Mid(inputString, J, 1)
+        Select Case char
+            Case "%"
+                encodedString = encodedString & "%25"
+            Case "/"
+                encodedString = encodedString & "%2F"
+            Case "°"
+                encodedString = encodedString & "%B0"
+            Case Else
+                encodedString = encodedString & char
+        End Select
+    Next J
+    
+    EncodeURL = encodedString
+End Function
+
